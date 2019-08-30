@@ -1,0 +1,27 @@
+{
+  "name": "firebase-timestamp-utils",
+  "version": "0.0.1",
+  "description": "Firebase timestamp utils",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel --presets es2015 -d lib/ src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+[https://github.com/eddyoc/firebase-timestamp-utils.git](https://github.com/eddyoc/firebase-timestamp-utils.git)"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "[https://github.com/eddyoc/firebase-timestamp-utils.gi#readme](https://github.com/eddyoc/firebase-timestamp-utils.gi#readme)",
+  "dependencies": {
+    "lodash": "^4.17.15",
+    "moment": "^2.24.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/preset-env": "^7.5.5"
+  }
+}
