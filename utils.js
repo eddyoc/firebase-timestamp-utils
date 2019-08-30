@@ -1,6 +1,12 @@
 const _ = require('lodash');
 const moment = require('moment');
 
+/**
+ * Returns the number with the units qualifier
+ * @param {Number} number
+ * @param {Number} unit
+ * @returns {string}
+ */
 const formatDateUnit = (number, unit) => {
   const pluralisedUnit = (number < 1) ? `${unit}s` : unit;
   return `${number} ${pluralisedUnit}`;

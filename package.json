@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+[https://github.com/eddyoc/firebase-timestamp-utils.git](https://github.com/eddyoc/firebase-timestamp-utils.git)"
   },
-  "author": "",
+  "author": "eddyoc",
   "license": "ISC",
   "homepage": "[https://github.com/eddyoc/firebase-timestamp-utils.gi#readme](https://github.com/eddyoc/firebase-timestamp-utils.gi#readme)",
   "dependencies": {
@@ -23,5 +23,10 @@
     "@babel/core": "^7.5.5",
     "@babel/node": "^7.5.5",
     "@babel/preset-env": "^7.5.5"
-  }
+  },
+  "keywords": [
+    "firebase",
+    "timestamp",
+    "utils"
+  ]
 }
