@@ -58,38 +58,35 @@ const getFormattedTimeFromNow = (diff) => {
   }
 };
 
-class Utils {
-
+module.exports = {
   // getFormattedRemainingTime = (timestamp) => {
-  getFormattedTimeFromNow = (timestamp) => {
+  getFormattedTimeFromNow: (timestamp) => {
     if (timestamp) {
-      const { seconds } = timestamp;
-      const diff = getDifference(moment(), moment.unix(seconds)); // moment().countdown(moment.unix(seconds));
+      const {seconds} = timestamp;
+      const diff = getDifference(moment(), moment.unix(seconds));
       // TODO : logic about what we show and don't show
       const result = getFormattedTimeFromNow(diff);
       return result;
     }
-  };
+  },
 
   /* This function will return the square of the number that the constructor of this class receives.*/
 
-  isPast = (timestamp) => {
+  isPast: (timestamp) => {
     if (timestamp) {
-      const { seconds } = timestamp;
-      const m = moment.unix(seconds)
+      const {seconds} = timestamp;
+      const m = moment.unix(seconds);
       const now = moment();
       return m.isBefore(now);
     }
-  };
+  },
 
-  isFuture = (timestamp) => {
+  isFuture: (timestamp) => {
     if (timestamp) {
-      const { seconds } = timestamp;
-      const m = moment.unix(seconds)
+      const {seconds} = timestamp;
+      const m = moment.unix(seconds);
       const now = moment();
       return m.isAfter(now);
     }
-  };
-}
-
-module.exports = Utils;
+  },
+};
