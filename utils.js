@@ -58,9 +58,9 @@ const getFormattedTimeFromNow = (diff) => {
   }
 };
 
-module.exports = {
+
   // getFormattedRemainingTime = (timestamp) => {
-  getFormattedTimeFromNow: (timestamp) => {
+  const getFormattedTimeFromNow = (timestamp) => {
     if (timestamp) {
       const {seconds} = timestamp;
       const diff = getDifference(moment(), moment.unix(seconds));
@@ -68,25 +68,30 @@ module.exports = {
       const result = getFormattedTimeFromNow(diff);
       return result;
     }
-  },
+  };
 
   /* This function will return the square of the number that the constructor of this class receives.*/
 
-  isPast: (timestamp) => {
+  const isPast = (timestamp) => {
     if (timestamp) {
       const {seconds} = timestamp;
       const m = moment.unix(seconds);
       const now = moment();
       return m.isBefore(now);
     }
-  },
+  };
 
-  isFuture: (timestamp) => {
+  const isFuture = (timestamp) => {
     if (timestamp) {
       const {seconds} = timestamp;
       const m = moment.unix(seconds);
       const now = moment();
       return m.isAfter(now);
     }
-  },
+  };
+
+module.exports = {
+  getFormattedTimeFromNow,
+  isPast,
+  isFuture,
 };
