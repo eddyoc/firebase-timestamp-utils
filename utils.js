@@ -1,4 +1,4 @@
-const _ = require('lodash');
+import _ from 'lodash';
 import moment from 'moment-timezone';
 
 /**
@@ -123,4 +123,4 @@ class FT {
 
 const ft = new FT();
 
-module.exports = ft;
+export default ft;

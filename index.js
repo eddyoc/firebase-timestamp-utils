@@ -1,3 +1,3 @@
-const ft = require("./utils");
+import ft from "./utils";
 
-module.exports = ft;
+export default ft;

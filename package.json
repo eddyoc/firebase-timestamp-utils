@@ -1,6 +1,6 @@
 {
   "name": "firebase-timestamp-utils",
-  "version": "0.0.9",
+  "version": "0.1.2",
   "description": "Firebase timestamp utils",
   "main": "index.js",
   "scripts": {
@@ -25,6 +25,7 @@
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@babel/register": "^7.5.5",
+    "babel-plugin-transform-export-extensions": "^6.22.0",
     "chai": "^4.2.0",
     "esm": "^3.2.25",
     "mocha": "^6.2.0"

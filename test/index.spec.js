@@ -1,14 +1,14 @@
-const assert = require('assert');
-const moment = require('moment');
-const { expect } = require('chai');
-const ft = require('../index.js');
+import assert from 'assert';
+import moment from 'moment';
+import { expect } from 'chai';
+import ft from '../index';
 
 const getTimestamp = () => {
   const seconds = moment().unix();
   return { seconds };
 };
 
-describe('ft', () => {
+describe('firebase-timestamp-utils', () => {
 
   it('.secondsFromNow() should be negative in the past', () => {
     const ts = getTimestamp();
