@@ -1,5 +1,5 @@
 const _ = require('lodash');
-const moment = require('moment');
+import moment from 'moment-timezone';
 
 /**
  * Returns the number with the units qualifier
@@ -58,9 +58,10 @@ const getFormattedTimeFromNow = (diff) => {
   }
 };
 
-const utils = {
-  // getFormattedRemainingTime = (timestamp) => {
-  getFormattedTimeFromNow: (timestamp) => {
+let timezone = 'Europe/London'; // GMT
+
+class FT {
+  getFormattedTimeFromNow(timestamp) {
     if (timestamp) {
       const {seconds} = timestamp;
       const diff = getDifference(moment(), moment.unix(seconds));
@@ -68,27 +69,58 @@ const utils = {
       const result = getFormattedTimeFromNow(diff);
       return result;
     }
-  },
+  }
 
-  /* This function will return the square of the number that the constructor of this class receives.*/
-
-  isPast: (timestamp) => {
+  isPast(timestamp) {
     if (timestamp) {
-      const {seconds} = timestamp;
+      const { seconds } = timestamp;
       const m = moment.unix(seconds);
       const now = moment();
       return m.isBefore(now);
     }
-  },
+  }
 
-  isFuture: (timestamp) => {
+  isFuture(timestamp) {
     if (timestamp) {
-      const {seconds} = timestamp;
+      const { seconds } = timestamp;
       const m = moment.unix(seconds);
       const now = moment();
       return m.isAfter(now);
     }
-  },
-};
+  }
 
-export default utils;
+  secondsFromNow(timestamp) {
+    if (timestamp) {
+      const { seconds } = timestamp;
+      const m = moment.unix(seconds);
+      const diff = -moment().diff(m);
+      return diff / 1000;
+    }
+  }
+
+  setTimezone(_timezone) {
+    timezone = _timezone;
+  }
+
+  /**
+   * For a given timestamp returns a date being the start of that day
+   * @param {Timestamp} timestamp
+   * @param {Number} [addHours = 0]
+   * @returns {*}
+   */
+  getStartOfDay(timestamp, addHours = 0) {
+    if (timestamp) {
+      const { seconds } = timestamp;
+      const m = moment.unix(seconds);
+      return m
+        .startOf('day')
+        .tz(timezone)
+        .add(addHours, 'hours')
+        .toDate();
+    }
+  };
+}
+
+const ft = new FT();
+
+module.exports = ft;

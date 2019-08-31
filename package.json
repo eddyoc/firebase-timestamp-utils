@@ -1,10 +1,10 @@
 {
   "name": "firebase-timestamp-utils",
-  "version": "0.0.1",
+  "version": "0.0.9",
   "description": "Firebase timestamp utils",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node ./node_modules/mocha/bin/mocha --require @babel/register",
     "build": "babel --presets es2015 -d lib/ src"
   },
   "repository": {
@@ -16,13 +16,18 @@
   "homepage": "[https://github.com/eddyoc/firebase-timestamp-utils.gi#readme](https://github.com/eddyoc/firebase-timestamp-utils.gi#readme)",
   "dependencies": {
     "lodash": "^4.17.15",
-    "moment": "^2.24.0"
+    "moment-timezone": "^0.5.26"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
     "@babel/node": "^7.5.5",
-    "@babel/preset-env": "^7.5.5"
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/register": "^7.5.5",
+    "chai": "^4.2.0",
+    "esm": "^3.2.25",
+    "mocha": "^6.2.0"
   },
   "keywords": [
     "firebase",
