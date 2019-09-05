@@ -72,21 +72,23 @@ class FT {
   }
 
   isPast(timestamp) {
-    if (timestamp) {
+    if (!_.isEmpty(timestamp)) {
       const { seconds } = timestamp;
       const m = moment.unix(seconds);
-      const now = moment();
-      return m.isBefore(now);
+      return m.isBefore(moment());
     }
+
+    return false;
   }
 
   isFuture(timestamp) {
-    if (timestamp) {
+    if (!_.isEmpty(timestamp)) {
       const { seconds } = timestamp;
       const m = moment.unix(seconds);
-      const now = moment();
-      return m.isAfter(now);
+      return m.isAfter(moment());
     }
+
+    return false;
   }
 
   secondsFromNow(timestamp) {
@@ -109,15 +111,23 @@ class FT {
    * @returns {*}
    */
   getStartOfDay(timestamp, addHours = 0) {
-    if (timestamp) {
-      const { seconds } = timestamp;
-      const m = moment.unix(seconds);
-      return m
-        .startOf('day')
-        .tz(timezone)
-        .add(addHours, 'hours')
-        .toDate();
+    let m;
+    if (timestamp instanceof Date) {
+      m = moment(timestamp);
     }
+    else if (timestamp && timestamp.seconds) {
+      const { seconds } = timestamp;
+      m = moment.unix(seconds);
+    }
+    else {
+      return undefined;
+    }
+
+    return m
+      .startOf('day')
+      .tz(timezone)
+      .add(addHours, 'hours')
+      .toDate();
   };
 }
 
