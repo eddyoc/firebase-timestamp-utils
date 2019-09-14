@@ -12,6 +12,20 @@ const formatDateUnit = (number, unit) => {
   return `${number} ${pluralisedUnit}`;
 };
 
+const toDate = (timestamp) => {
+  let date;
+
+  if (timestamp instanceof Date) {
+    date = moment(timestamp);
+  }
+  else if (timestamp && timestamp.seconds) {
+    const { seconds } = timestamp;
+    date = moment.unix(seconds);
+  }
+
+  return date;
+};
+
 /**
  *
  * @param {Moment} from
@@ -69,6 +83,32 @@ class FT {
       const result = getFormattedTimeFromNow(diff);
       return result;
     }
+  }
+
+  /**
+   * Returns true if the timestamp is now, within a specified tolerance
+   * @param {Timestamp} timestamp
+   * @param {Number} tolerance - in seconds
+   * @returns {*}
+   */
+  isNow(timestamp, tolerance = 0) {
+    if (!_.isEmpty(timestamp)) {
+      const date = toDate(timestamp);
+
+      if (date) {
+
+      }
+
+      const now = new Date();
+      const fromRange = moment(now)
+        .subtract(tolerance, 'seconds');
+      const toRange = moment(now)
+        .add(tolerance, 'seconds');
+
+      return date.isAfter(fromRange) && date.isBefore(toRange);
+    }
+
+    return false;
   }
 
   isPast(timestamp) {

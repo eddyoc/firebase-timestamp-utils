@@ -1,12 +1,5 @@
 {
-  "presets": [
-    [
-      "@babel/preset-env",
-      {
-        "modules": "auto"
-      }
-    ]
-  ],
+  "presets": ["@babel/preset-env"],
   "plugins": [
     "@babel/plugin-proposal-class-properties",
     "transform-export-extensions"

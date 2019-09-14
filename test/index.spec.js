@@ -20,6 +20,20 @@ describe('firebase-timestamp-utils', () => {
     expect(secondsFromNow).to.be.at.most(0);
   });
 
+  it('.isNow() should fail with zero tolerance', () => {
+    const ts = getTimestamp();
+
+    assert.notEqual(ft.isNow(ts), true);
+  });
+
+  it('.isNow() should succeed with 2 second tolerance', () => {
+    const ts = getTimestamp();
+
+    assert.equal(ft.isNow(ts, 2), true);
+  });
+
+
+
   // it('defining a method is simple', function() {
   //   class User {
   //     writesTests() {

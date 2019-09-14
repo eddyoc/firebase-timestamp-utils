@@ -1,3 +1,3 @@
-import ft from "./utils";
+var ft = require('./lib/utils');
 
-export default ft;
+module.exports = ft;
