@@ -32,7 +32,7 @@ const toDate = (timestamp) => {
  * @param {Moment} to
  * @returns {{hours: number, seconds: number, months: number, minutes: number, days: number, years: number}}
  */
-const getDifference = (from, to) => {
+const getDifference = (to, from) => {
   // get the difference between the moments
   const diff = to.diff(from);
   //express as a duration
@@ -80,22 +80,22 @@ const getFormattedTimeFromNow = (diff) => {
     years, months, days, hours, minutes, seconds,
   } = diff;
   if (years < 0) {
-    return formatDateUnit(years, 'Year');
+    return formatDateUnit(years, 'year');
   }
   if (months < 0) {
-    return formatDateUnit(months, 'Month');
+    return formatDateUnit(months, 'month');
   }
   if (days < 0) {
-    return formatDateUnit(days, 'Day');
+    return formatDateUnit(days, 'day');
   }
   if (hours < 0) {
-    return formatDateUnit(hours, 'Hour');
+    return formatDateUnit(hours, 'hour');
   }
   if (minutes < 0) {
-    return formatDateUnit(minutes, 'Minute');
+    return formatDateUnit(minutes, 'minute');
   }
   if (seconds < 0) {
-    return formatDateUnit(seconds, 'Second');
+    return formatDateUnit(seconds, 'second');
   }
 };
 
@@ -105,7 +105,7 @@ class FT {
 
   getFormattedTimeFromNow(timestamp) {
     if (timestamp) {
-      const {seconds} = timestamp;
+      const { seconds } = timestamp;
       const diff = getDifference(moment(), moment.unix(seconds));
       // TODO : logic about what we show and don't show
       const result = getFormattedTimeFromNow(diff);
