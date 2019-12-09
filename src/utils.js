@@ -8,7 +8,7 @@ import moment from 'moment-timezone';
  * @returns {string}
  */
 const formatDateUnit = (number, unit) => {
-  const pluralisedUnit = (number < 1) ? `${unit}s` : unit;
+  const pluralisedUnit = (number < 2) ? `${unit}s` : unit;
   return `${number} ${pluralisedUnit}`;
 };
 
@@ -48,6 +48,33 @@ const getDifference = (from, to) => {
   }
 };
 
+// export const getFormattedRemainingTime = (date) => {
+//   if (date) {
+//     const seconds = date.seconds || date._seconds;
+//     // console.log('seconds=', seconds);
+//     const result = getDifference(moment(), moment.unix(seconds)); // moment().countdown(moment.unix(seconds));
+//     // TODO : logic about what we show and don't show
+//     if (result.years > 0) {
+//       return formatDateUnit(result.years, 'Year');
+//     }
+//     if (result.months > 0) {
+//       return formatDateUnit(result.months, 'Month');
+//     }
+//     if (result.days > 0) {
+//       return formatDateUnit(result.days, 'Day');
+//     }
+//     if (result.hours > 0) {
+//       return formatDateUnit(result.hours, 'Hour');
+//     }
+//     if (result.minutes > 0) {
+//       return formatDateUnit(result.minutes, 'Minute');
+//     }
+//     if (result.seconds > 0) {
+//       return formatDateUnit(result.seconds, 'Second');
+//     }
+//   }
+// };
+
 const getFormattedTimeFromNow = (diff) => {
   const {
     years, months, days, hours, minutes, seconds,
@@ -75,6 +102,7 @@ const getFormattedTimeFromNow = (diff) => {
 let timezone = 'Europe/London'; // GMT
 
 class FT {
+
   getFormattedTimeFromNow(timestamp) {
     if (timestamp) {
       const {seconds} = timestamp;
