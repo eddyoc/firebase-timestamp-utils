@@ -1,6 +1,6 @@
 {
   "name": "firebase-timestamp-utils",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "Firebase timestamp utils",
   "main": "index.js",
   "scripts": {

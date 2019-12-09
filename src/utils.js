@@ -34,7 +34,7 @@ const toDate = (timestamp) => {
  */
 const getDifference = (to, from) => {
   // get the difference between the moments
-  const diff = to.diff(from);
+  const diff = from.diff(to);
   //express as a duration
   const duration = moment.duration(diff);
 
